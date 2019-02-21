@@ -19,7 +19,7 @@ class BPMCollections
      * AUTHENTIFICATION: Création du cookie de connexion
      */
     public function __construct() {
-        $target_url = 'https://dev-legaldoc.bpmonline.com/ServiceModel/AuthService.svc/Login';
+        $target_url = 'https://urlto.bpmonline.com/ServiceModel/AuthService.svc/Login';
         $verbose = fopen('C:\\workspace\\apitest\\var\\logs\\BPMInterfaces.log', 'w+');
         
         $post = array (
@@ -55,7 +55,7 @@ class BPMCollections
         $lines = file('C:\\Users\\Public\\cookieBPM.txt');
         $token = trim(substr($lines[6], strpos($lines[6], "BPMCSRF") + strlen("BPMCSRF")));
         
-        $target_url = "https://dev-legaldoc.bpmonline.com/0/ServiceModel/EntityDataService.svc/".$collection
+        $target_url = "https://urlto.bpmonline.com/0/ServiceModel/EntityDataService.svc/".$collection
         
         $ch = curl_init ();
         curl_setopt($ch, CURLOPT_COOKIEFILE, 'C:\\Users\\Public\\cookieBPM.txt'); //lecture du cookie
@@ -84,7 +84,7 @@ class BPMCollections
         $lines = file('C:\\Users\\Public\\cookieBPM.txt');
         $token = trim(substr($lines[6], strpos($lines[6], "BPMCSRF") + strlen("BPMCSRF")));
         
-        $target_url = 'https://dev-legaldoc.bpmonline.com/0/ServiceModel/EntityDataService.svc/'.$collection;
+        $target_url = 'https://urlto.bpmonline.com/0/ServiceModel/EntityDataService.svc/'.$collection;
         if (count($api_query) > 0) {
             $target_url .= '?' . implode('&', array_map(function($item) {
                 return $item[0] . '=' . $item[1];
@@ -121,7 +121,7 @@ class BPMCollections
         $lines = file('C:\\Users\\Public\\cookieBPM.txt');
         $token = trim(substr($lines[6], strpos($lines[6], "BPMCSRF") + strlen("BPMCSRF")));
         
-        $target_url = "https://dev-legaldoc.bpmonline.com/0/ServiceModel/EntityDataService.svc/".$collection."(guid'".$Id."')";
+        $target_url = "https://urlto.bpmonline.com/0/ServiceModel/EntityDataService.svc/".$collection."(guid'".$Id."')";
         
         $ch = curl_init ();
         curl_setopt($ch, CURLOPT_COOKIEFILE, 'C:\\Users\\Public\\cookieBPM.txt'); //lecture du cookie
@@ -151,7 +151,7 @@ class BPMCollections
         $lines = file('C:\\Users\\Public\\cookieBPM.txt');
         $token = trim(substr($lines[6], strpos($lines[6], "BPMCSRF") + strlen("BPMCSRF")));
         
-        $target_url = "https://dev-legaldoc.bpmonline.com/0/ServiceModel/EntityDataService.svc/".$collection."(guid'".$Id."')";
+        $target_url = "https://urlto.bpmonline.com/0/ServiceModel/EntityDataService.svc/".$collection."(guid'".$Id."')";
         
         $ch = curl_init ();
         curl_setopt($ch, CURLOPT_COOKIEFILE, 'C:\\Users\\Public\\cookieBPM.txt'); //lecture du cookie
