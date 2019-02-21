@@ -50,7 +50,6 @@ class BPMCollectionsController extends Controller
      *                        "JobTitle" => (string)$data->contact->JobTitle);
      */
     public function WSPOSTBPM($collection, $Id='', $tabObject) {
-        //echo "<xmp>".print_r($tabObject,1)."</xmp>";exit();
         $lines = file('C:\\Users\\Public\\cookieBPM.txt');
         $token = trim(substr($lines[6], strpos($lines[6], "BPMCSRF") + strlen("BPMCSRF")));
         
@@ -60,7 +59,6 @@ class BPMCollectionsController extends Controller
         curl_setopt($ch, CURLOPT_COOKIEFILE, 'C:\\Users\\Public\\cookieBPM.txt'); //lecture du cookie
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($tabObject));
-        curl_setopt($ch, CURLOPT_STDERR, $verbose);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Content-Type: application/json;odata=verbose',
@@ -96,7 +94,6 @@ class BPMCollectionsController extends Controller
         curl_setopt($ch, CURLOPT_COOKIEFILE, 'C:\\Users\\Public\\cookieBPM.txt'); //lecture du cookie
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_STDERR, $verbose);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Content-Type: application/json;odata=verbose',
             'Accept: application/json;odata=verbose',
@@ -159,7 +156,6 @@ class BPMCollectionsController extends Controller
         $ch = curl_init ();
         curl_setopt($ch, CURLOPT_COOKIEFILE, 'C:\\Users\\Public\\cookieBPM.txt'); //lecture du cookie
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
-        curl_setopt($ch, CURLOPT_STDERR, $verbose);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Content-Type: application/json;odata=verbose',
