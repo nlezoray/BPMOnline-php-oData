@@ -88,7 +88,6 @@ class BPMCollectionsController extends Controller
                 return $item[0] . '=' . $item[1];
             }, array_map(null, array_keys($api_query), $api_query)));
         }
-        
                 
         $ch = curl_init ();
         curl_setopt($ch, CURLOPT_COOKIEFILE, 'C:\\Users\\Public\\cookieBPM.txt'); //lecture du cookie
@@ -121,7 +120,6 @@ class BPMCollectionsController extends Controller
         $token = trim(substr($lines[6], strpos($lines[6], "BPMCSRF") + strlen("BPMCSRF")));
         
         $target_url = "https://URLTOBPM/0/ServiceModel/EntityDataService.svc/".$collection."(guid'".$Id."')";
-        //echo $target_url;exit();
         
         $ch = curl_init ();
         curl_setopt($ch, CURLOPT_COOKIEFILE, 'C:\\Users\\Public\\cookieBPM.txt'); //lecture du cookie
